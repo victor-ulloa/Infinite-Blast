@@ -6,7 +6,9 @@ public class PlayerController : MonoBehaviour, PlayerControls.ITouchActions
 {
 
     [SerializeField] float speed = 10f;
-    // [SerializeField] float speedMultiplier = 0.1f;
+    [SerializeField] float verticalSpeed = 10f;
+    [SerializeField] bool isTouchDown;
+    [SerializeField] bool hasStarted;
 
     [SerializeField] LayerMask groundMask;
 
@@ -35,7 +37,11 @@ public class PlayerController : MonoBehaviour, PlayerControls.ITouchActions
 
     private void FixedUpdate()
     {
-        // Vector3 forwardMove = transform.forward * speed * Time.fixedDeltaTime;
+        if (!hasStarted) { return; }
+        Vector3 forwardMove = transform.forward * speed * Time.fixedDeltaTime  * 0;
+        if (isTouchDown) {
+            rb.AddForce(transform.up * verticalSpeed * Time.fixedDeltaTime, ForceMode.Force);
+        }
         // rb.MovePosition(rb.position + forwardMove);
 
     }
@@ -48,11 +54,12 @@ public class PlayerController : MonoBehaviour, PlayerControls.ITouchActions
 
     public void OnPrimaryContact(InputAction.CallbackContext context)
     {
+        if (!hasStarted) { hasStarted = true; }
         if (context.started) {
-            Debug.Log("STARTED");
+            isTouchDown = true;
         }
         if (context.canceled) {
-            Debug.Log("CANCELED");
+            isTouchDown = false;
         }
 
     }
