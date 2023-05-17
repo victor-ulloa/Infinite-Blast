@@ -15,12 +15,17 @@ public class PlayerController : MonoBehaviour, PlayerControls.ITouchActions
     PlayerControls input;
     Rigidbody rb;
     Animator animator;
+    Vector3 startPosition;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         input = new PlayerControls();
+    }
+    
+    private void Start() {
+        startPosition = transform.position;
     }
 
     private void OnEnable()
@@ -44,6 +49,7 @@ public class PlayerController : MonoBehaviour, PlayerControls.ITouchActions
             rb.AddForce(transform.up * verticalSpeed * Time.fixedDeltaTime, ForceMode.Force);
         }
         rb.MovePosition(rb.position + forwardMove);
+        GameManager.instance.distance = (int)(transform.position.x - startPosition.x);
 
     }
 
