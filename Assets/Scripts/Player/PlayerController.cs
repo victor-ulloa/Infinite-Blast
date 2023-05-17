@@ -39,26 +39,27 @@ public class PlayerController : MonoBehaviour, PlayerControls.ITouchActions
     {
         if (!hasStarted) { return; }
         Vector3 forwardMove = transform.right * speed * Time.fixedDeltaTime;
-        if (isTouchDown) {
+        if (isTouchDown)
+        {
             rb.AddForce(transform.up * verticalSpeed * Time.fixedDeltaTime, ForceMode.Force);
         }
         rb.MovePosition(rb.position + forwardMove);
 
     }
 
-    private void Update()
-    {
-
-    }
-
-
     public void OnPrimaryContact(InputAction.CallbackContext context)
     {
-        if (!hasStarted) { hasStarted = true; }
-        if (context.started) {
+        if (!hasStarted)
+        {
+            rb.useGravity = true;
+            hasStarted = true;
+        }
+        if (context.started)
+        {
             isTouchDown = true;
         }
-        if (context.canceled) {
+        if (context.canceled)
+        {
             isTouchDown = false;
         }
     }
