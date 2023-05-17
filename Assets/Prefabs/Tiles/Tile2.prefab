@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2174778005232274395
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8844389079371113835}
+  m_Layer: 0
+  m_Name: NextTileSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8844389079371113835
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2174778005232274395}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6367432100043285003}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6367432100043285000
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,6 +40,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6367432100043285003}
+  - component: {fileID: 48993039146177073}
+  - component: {fileID: 3635610454982031799}
   m_Layer: 0
   m_Name: Tile2
   m_TagString: Untagged
@@ -29,12 +62,38 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7259162438426875648}
+  - {fileID: 8844389079371113835}
   - {fileID: 6906006966719966314}
   - {fileID: 6906006967742815157}
   - {fileID: 6906006967835638226}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &48993039146177073
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6367432100043285000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.5, y: 15, z: 8}
+  m_Center: {x: 0, y: 7.5, z: 0}
+--- !u!114 &3635610454982031799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6367432100043285000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c6e15cdf2533104fa891abc73435003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6367432099272220217
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44,7 +103,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: e5628c57738fd6e4cbdd9f5c9f5a74d1, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e5628c57738fd6e4cbdd9f5c9f5a74d1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -125,7 +184,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 59fe3d328a852bc4cb8469c2a3d1dac8, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 59fe3d328a852bc4cb8469c2a3d1dac8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -206,7 +265,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: f60e3844bdd608643bac13a128498606, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f60e3844bdd608643bac13a128498606, type: 3}
       propertyPath: m_LocalPosition.x

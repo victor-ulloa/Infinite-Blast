@@ -38,11 +38,11 @@ public class PlayerController : MonoBehaviour, PlayerControls.ITouchActions
     private void FixedUpdate()
     {
         if (!hasStarted) { return; }
-        Vector3 forwardMove = transform.forward * speed * Time.fixedDeltaTime  * 0;
+        Vector3 forwardMove = transform.right * speed * Time.fixedDeltaTime;
         if (isTouchDown) {
             rb.AddForce(transform.up * verticalSpeed * Time.fixedDeltaTime, ForceMode.Force);
         }
-        // rb.MovePosition(rb.position + forwardMove);
+        rb.MovePosition(rb.position + forwardMove);
 
     }
 
@@ -61,6 +61,5 @@ public class PlayerController : MonoBehaviour, PlayerControls.ITouchActions
         if (context.canceled) {
             isTouchDown = false;
         }
-
     }
 }
