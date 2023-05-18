@@ -69,4 +69,8 @@ public class PlayerController : MonoBehaviour, PlayerControls.ITouchActions
             isTouchDown = false;
         }
     }
+
+    private void OnCollisionEnter(Collision other) {
+        GameManager.instance.GameOver();
+    }
 }

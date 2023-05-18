@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -28,5 +29,10 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }   
+    }
+
+    public void GameOver() {
+        distance = 0;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
