@@ -22,13 +22,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [HideInInspector] public AudioSourceManager AudioManager;
+
     void Awake() {
         if (instance) {
             Destroy(gameObject);
         } else {
             instance = this;
             DontDestroyOnLoad(gameObject);
-        }   
+        } 
+
+        AudioManager = GetComponent<AudioSourceManager>(); 
     }
 
     public void GameOver() {
