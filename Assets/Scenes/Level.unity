@@ -337,7 +337,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa88067e72407649809bb96e98e9d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceValue: {fileID: 78776625}
+  DistanceValue: {fileID: 78776625}
+  StartButton: {fileID: 0}
 --- !u!114 &473118720
 MonoBehaviour:
   m_ObjectHideFlags: 0

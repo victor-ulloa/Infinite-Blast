@@ -1,23 +1,49 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CanvasManager : MonoBehaviour
 {
     [Header("Text")]
-    [SerializeField] TMP_Text distanceValue;
-    
+    [SerializeField] TMP_Text DistanceValue;
+
+    [Header("Buttons")]
+    [SerializeField] Button StartButton;
+    [SerializeField] Button MenuButton;
+
     void Start()
     {
-        if (distanceValue)
+        if (DistanceValue)
         {
-            distanceValue.text = GameManager.instance.distance.ToString() + " m";
+            DistanceValue.text = GameManager.instance.distance.ToString() + " m";
             GameManager.instance.OnDistanceValueChanged.AddListener((value) => UpdateDistance(value));
+        }
+
+        if (StartButton)
+        {
+            StartButton.onClick.AddListener(() => StartButtonClicked());
+        }
+
+        if (MenuButton)
+        {
+            MenuButton.onClick.AddListener(() => MenuButtonClicked());
         }
     }
 
 
     void UpdateDistance(int value)
     {
-        distanceValue.text = value.ToString() + " m";
+        DistanceValue.text = value.ToString() + " m";
+    }
+
+    void StartButtonClicked()
+    {
+        SceneManager.LoadScene("Level");
+    }
+
+    void MenuButtonClicked()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
