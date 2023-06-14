@@ -686,6 +686,7 @@ PlayerSettings:
   vrEditorSettings: {}
   cloudServicesEnabled:
     UNet: 1
+    Unity Ads: 1
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -699,11 +700,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 2
-  cloudProjectId: 
+  cloudProjectId: 7621e33b-6b31-4e2b-92a6-ac73ed5d5f77
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: Infinite Blast
+  organizationId: bloodlineu
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 

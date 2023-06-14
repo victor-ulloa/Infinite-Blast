@@ -11,6 +11,7 @@ public class CanvasManager : MonoBehaviour
     [Header("Buttons")]
     [SerializeField] Button StartButton;
     [SerializeField] Button MenuButton;
+    [SerializeField] Button RestartButton;
 
     void Start()
     {
@@ -29,6 +30,10 @@ public class CanvasManager : MonoBehaviour
         {
             MenuButton.onClick.AddListener(() => MenuButtonClicked());
         }
+        if (RestartButton)
+        {
+            RestartButton.onClick.AddListener(() => RestartButtonClicked());
+        }
     }
 
 
@@ -45,5 +50,10 @@ public class CanvasManager : MonoBehaviour
     void MenuButtonClicked()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    void RestartButtonClicked()
+    {
+        SceneManager.LoadScene("Level");
     }
 }

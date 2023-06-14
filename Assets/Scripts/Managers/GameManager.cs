@@ -37,6 +37,6 @@ public class GameManager : MonoBehaviour
 
     public void GameOver() {
         distance = 0;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("GameOver");
     }
 }
