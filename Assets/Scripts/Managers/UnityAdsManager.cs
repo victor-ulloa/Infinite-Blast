@@ -8,7 +8,6 @@ public class UnityAdsManager : MonoBehaviour, IUnityAdsInitializationListener, I
     public string GAME_ID = "5313509";
 
     private const string BANNER_PLACEMENT = "banner";
-    private const string VIDEO_PLACEMENT = "video";
     private const string REWARDED_VIDEO_PLACEMENT = "Rewarded_iOS";
 
     [SerializeField] private BannerPosition bannerPosition = BannerPosition.BOTTOM_CENTER;
@@ -52,16 +51,6 @@ public class UnityAdsManager : MonoBehaviour, IUnityAdsInitializationListener, I
     public void ShowRewardedAd()
     {
         Advertisement.Show(REWARDED_VIDEO_PLACEMENT, this);
-    }
-
-    public void LoadNonRewardedAd()
-    {
-        Advertisement.Load(VIDEO_PLACEMENT, this);
-    }
-
-    public void ShowNonRewardedAd()
-    {
-        Advertisement.Show(VIDEO_PLACEMENT, this);
     }
 
     #region Interface Implementations
@@ -108,14 +97,4 @@ public class UnityAdsManager : MonoBehaviour, IUnityAdsInitializationListener, I
         Debug.Log($"OnUnityAdsShowComplete: [{showCompletionState}]: {placementId}");
     }
     #endregion
-
-    public void OnGameIDFieldChanged(string newInput)
-    {
-        GAME_ID = newInput;
-    }
-
-    public void ToggleTestMode(bool isOn)
-    {
-        testMode = isOn;
-    }
 }
