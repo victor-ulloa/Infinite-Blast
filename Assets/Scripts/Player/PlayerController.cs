@@ -49,9 +49,13 @@ public class PlayerController : MonoBehaviour, PlayerControls.ITouchActions
     {
         if (!hasStarted) { return; }
         Vector3 forwardMove = transform.right * speed * Time.fixedDeltaTime;
-        if (isTouchDown)
+        if (isTouchDown && gameObject.transform.position.y <= 14)
         {
             rb.AddForce(transform.up * verticalSpeed * Time.fixedDeltaTime, ForceMode.Force);
+        }
+        else if (gameObject.transform.position.y > 14)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
         }
         rb.MovePosition(rb.position + forwardMove);
         GameManager.instance.distance = (int)(transform.position.x - startPosition.x);
