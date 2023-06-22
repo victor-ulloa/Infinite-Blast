@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     }
 
     [HideInInspector] public UnityEvent<int> OnDistanceValueChanged;
+    [HideInInspector] public UnityEvent<int> OnCoinsValueChanged;
     
     private int _distance = 0;
     public int distance {
@@ -19,6 +20,15 @@ public class GameManager : MonoBehaviour
         set {
             _distance = value;
             OnDistanceValueChanged.Invoke(_distance);
+        }
+    }
+
+    private int _coins = 0;
+    public int coins {
+        get { return _coins; }
+        set {
+            _coins = value;
+            OnCoinsValueChanged.Invoke(_coins);
         }
     }
 

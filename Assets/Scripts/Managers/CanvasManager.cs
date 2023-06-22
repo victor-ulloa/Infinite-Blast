@@ -7,6 +7,7 @@ public class CanvasManager : MonoBehaviour
 {
     [Header("Text")]
     [SerializeField] TMP_Text DistanceValue;
+    [SerializeField] TMP_Text CoinsValue;
 
     [Header("Buttons")]
     [SerializeField] Button StartButton;
@@ -19,6 +20,11 @@ public class CanvasManager : MonoBehaviour
         {
             DistanceValue.text = GameManager.instance.distance.ToString() + " m";
             GameManager.instance.OnDistanceValueChanged.AddListener((value) => UpdateDistance(value));
+        }
+        if (CoinsValue)
+        {
+            CoinsValue.text = GameManager.instance.coins.ToString();
+            GameManager.instance.OnCoinsValueChanged.AddListener((value) => UpdateCoins(value));
         }
 
         if (StartButton)
@@ -40,6 +46,11 @@ public class CanvasManager : MonoBehaviour
     void UpdateDistance(int value)
     {
         DistanceValue.text = value.ToString() + " m";
+    }
+    
+    void UpdateCoins(int value)
+    {
+        CoinsValue.text = value.ToString();
     }
 
     void StartButtonClicked()
